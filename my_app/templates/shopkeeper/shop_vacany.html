@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopkeeer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+    body{
+      background-color: black;
+    }
+    .navbar-nav {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .navbar-nav * {
+      box-sizing: border-box;
+      transition: all .35s ease;
+    }
+
+    .navbar-nav li {
+      display: inline-block;
+      list-style: outside none none;
+      margin: .5em 1em;
+      padding: 0;
+    }
+
+    .navbar-nav a {
+      padding: .5em .8em;
+      color: rgba(255,255,255,.5);
+      position: relative;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .navbar-nav a::before,
+    .navbar-nav a::after {
+      content: '';
+      height: 14px;
+      width: 14px;
+      position: absolute;
+      transition: all .35s ease;
+      opacity: 0;
+    }
+
+    .navbar-nav a::before {
+      content: '';
+      right: 0;
+      top: 0;
+      border-top: 3px solid orange;
+      border-right: 3px solid orange;
+      transform: translate(-100%, 50%);
+    }
+
+    .navbar-nav a:after {
+      content: '';
+      left: 0;
+      bottom: 0;
+      border-bottom: 3px solid orange;
+      border-left: 3px solid orange;
+      transform: translate(100%, -50%)
+    }
+
+    .navbar-nav a:hover:before,
+    .navbar-nav a:hover:after{
+      transform: translate(0,0);
+      opacity: 1;
+    }
+
+    .bg-dark {
+      background-color: black !important;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: orange;
+    }
+    
+  
+	.contact{
+		padding: 4%;
+		height: 400px;
+	}
+	.col-md-5{
+		background: #ff9b00;
+		padding: 4%;
+		border-top-left-radius: 0.5rem;
+		border-bottom-left-radius: 0.5rem;
+	}
+	.contact-info{
+		margin-top:10%;
+    background-color: orange;
+	}
+
+	.contact-info h2{
+		margin-bottom: 10%;
+	}
+	.col-md-7 {
+		padding: 3%;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+	}
+	.contact-form label{
+		font-weight:600;
+	}
+	.contact-form button{
+		background:orange;
+		color: black;
+		font-weight: 600;
+		width: 25%;
+	}
+	.contact-form button:focus{
+		box-shadow:none;
+	}
+  label{
+    color: white;
+  }
+    
+</style>
+<body>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile_shopkeeper' i.id %}">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile_shopkeeper' i.id %}">Notification</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'search_garbagecollector' i.id %}">GarbageCollector</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'vacancy_shop' i.id %}">Post Vacany</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'GarbageCollectors' i.id %}">Request Status</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'View_application_shop' i.id %}">View Applications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Houses_list' i.id %}">Houses_list</a>
+              </li>
+            </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <!--Adding a post-->
+  <div class="container contact">
+    <div class="row">
+      <div class="col-md-5" style="background-color: orange;">
+        <div class="contact-info">
+          <h2>Previous Hiring Posts</h2>
+          {% for j in posted %}
+          <div class="row">
+            <div class="col-7">
+              <h4 style="margin-bottom: 10%;">{{ j.job_title }}</h4><br>
+            </div>
+            <div class="col-5">
+              <a class="btn btn-danger" href="{% url 'delete' j.id %}">Delete</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-7" style="background-color: black">
+        <div class="contact-form">
+          <form method="POST" action="{% url 'vacancy_shop' i.id %}">
+            {% csrf_token %}
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="fname">Shop Name:</label>
+            <div class="col-sm-10">          
+            <input  class="form-control" id="fname" placeholder="Shop Name" type="text" name="posted_by" value="{{ i.shop_name }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-5" for="email">Job Title</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="email" placeholder="Job Title" type="text" name="title">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-5" for="comment">Job Description</label>
+            <div class="col-sm-10">
+            <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+            </div>
+          </div>
+          <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default">
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="row text-center">
+          {% if messages %}
+         <div class="col-12 text-center">
+            {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% if message.tags == 'success' %}
+            <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+      </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+</html>

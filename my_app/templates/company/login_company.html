@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Log in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+<style>
+    html {
+      height: 100%;
+    }
+    body {
+      margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background-image: url(https://images.unsplash.com/photo-1614360182734-121501b81cc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=373&q=80);
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,.5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0,0,0,.6);
+      border-radius: 10px;
+    }
+
+
+    .login-box .user-box {
+      position: relative;
+    }
+
+    .login-box .user-box input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid orange;
+      outline: none;
+      background: transparent;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid orange;
+      outline: none;
+      background-color: transparent;
+      color: grey;
+
+    }
+
+    select option {
+        margin: 40px;
+        background: black;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .login-box form a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color:orange;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+      background: orange;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px orange,
+                  0 0 25px orange,
+                  0 0 50px orange,
+                  0 0 100px orange;
+    }
+    .card{
+        background: transparent;
+    }
+    .submit{
+        background-color: transparent;
+        padding: 10px;
+        font-weight: bold;
+        border: 1px solid orange;
+        font-size: 20px;
+        color: orange;
+        box-shadow: 5px 5px 10px orange;
+    }
+    .submit:hover{
+        background-color: orange;
+        color: black;
+        box-shadow: none;
+    }
+</style>
+<body>
+    <div class="login-box">
+      <div class="card">
+        <h3 style="color: orange;font-weight: bold;text-align: center;"><b>COMPANY</b> Login</h3>
+        <div class="card-body login-card-body">
+        <form method="POST" action="{% url 'company' %}">
+          {% csrf_token %}
+            <div class="user-box mb-3">
+              <input type="text" name="email" placeholder="Email" class="form-control" required="required"/>
+            </div>
+            <div class="user-box mb-3">
+              <input type="password" name="password" placeholder="Password" class="form-control" required="required"/>
+            </div>
+            <input class="submit" type="submit" value="Submit">
+          </form>
+            <br>
+            <div class="row text-center">
+                {% if messages %}
+               <div class="col-12 text-center">
+                  {% for message in messages %}
+                  {% if message.tags == 'error' %}
+                  <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                  {% endif %}
+                  {% if message.tags == 'success' %}
+                  <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+         </div>
+      </div>
+    </div>
+
+</body>
+</html>

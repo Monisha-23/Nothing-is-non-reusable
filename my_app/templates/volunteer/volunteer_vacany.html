@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+   
+    .navbar-nav {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .navbar-nav * {
+      box-sizing: border-box;
+      transition: all .35s ease;
+    }
+
+    .navbar-nav li {
+      display: inline-block;
+      list-style: outside none none;
+      margin: .5em 1em;
+      padding: 0;
+    }
+
+    .navbar-nav a {
+      padding: .5em .8em;
+      color: rgba(255,255,255,.5);
+      position: relative;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .navbar-nav a::before,
+    .navbar-nav a::after {
+      content: '';
+      height: 14px;
+      width: 14px;
+      position: absolute;
+      transition: all .35s ease;
+      opacity: 0;
+    }
+
+    .navbar-nav a::before {
+      content: '';
+      right: 0;
+      top: 0;
+      border-top: 3px solid orange;
+      border-right: 3px solid orange;
+      transform: translate(-100%, 50%);
+    }
+
+    .navbar-nav a:after {
+      content: '';
+      left: 0;
+      bottom: 0;
+      border-bottom: 3px solid orange;
+      border-left: 3px solid orange;
+      transform: translate(100%, -50%)
+    }
+
+    .navbar-nav a:hover:before,
+    .navbar-nav a:hover:after{
+      transform: translate(0,0);
+      opacity: 1;
+    }
+
+    .bg-dark {
+      background-color: black !important;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: orange;
+    }
+    
+  
+	  body{
+      background: black;
+    }
+    
+
+    .card {
+        border: none;
+        border-radius: 10px
+    }
+
+    .c-details span {
+        font-weight: 300;
+        font-size: 13px
+    }
+
+   
+
+    .badge span {
+        background-color: #fffbec;
+       
+        height: 25px;
+        padding-bottom: 3px;
+        border-radius: 5px;
+        display: flex;
+        color: grey;
+        justify-content: center;
+        margin-right: 20%;
+    }
+
+    
+
+    .text1 {
+        font-size: 14px;
+        font-weight: 600
+    }
+
+    .text2 {
+        color: #a5aec0
+    }
+</style>
+<body>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile_volunteer' member.id %}">Profile</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'hiring_offers' member.id %}">Vacancy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home_list' member.id %}">Work</a>
+              </li>
+            </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="row text-center">
+    {% if messages %}
+   <div class="col-12 text-center">
+      {% for message in messages %}
+      {% if message.tags == 'error' %}
+      <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+      {% endif %}
+      {% if message.tags == 'success' %}
+      <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+    
+  <!--Adding a post-->
+  <div class="container mt-5 mb-3">
+    {% for i in list %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                      <h3 class="heading">{{ i.job_title }}<br></h3>
+                    </div>
+                    <div class="badge"> <span>{{ i.posted_by }}</span> </div>
+                </div>
+                    <p style="padding-left: 5%;color: rgb(90, 88, 88);">{{ i.job_description }}</p>
+                    <a class="btn btn-warning" href="{% url 'apply' vol_id=member.id job_id=i.id %}">Apply Now</a>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+
+</body>
+</html>

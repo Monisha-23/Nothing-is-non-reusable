@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+  body{
+      margin-top:20px;
+      color: #1a202c;
+      text-align: left;
+      background-color: black;    
+  }
+  .main-body {
+      padding: 15px;
+  }
+  .card {
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  }
+
+  .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: transparent;
+      background-clip: border-box;
+      border: 0 solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      color:white;
+  }
+
+
+  .card-body {
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 1rem;
+  }
+
+  .gutters-sm {
+      margin-right: -8px;
+      margin-left: -8px;
+  }
+
+  .gutters-sm>.col, .gutters-sm>[class*=col-] {
+      padding-right: 8px;
+      padding-left: 8px;
+  }
+  .mb-3, .my-3 {
+      margin-bottom: 1rem!important;
+  }
+
+  .bg-gray-300 {
+      background-color: #e2e8f0;
+  }
+  .h-100 {
+      height: 100%!important;
+  }
+  .shadow-none {
+      box-shadow: none!important;
+  }
+  .navbar-nav {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .navbar-nav * {
+    box-sizing: border-box;
+    transition: all .35s ease;
+  }
+
+  .navbar-nav li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: .5em 1em;
+    padding: 0;
+  }
+
+  .navbar-nav a {
+    padding: .5em .8em;
+    color: rgba(255,255,255,.5);
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .navbar-nav a::before,
+  .navbar-nav a::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+  }
+
+  .navbar-nav a::before {
+    content: '';
+    right: 0;
+    top: 0;
+    border-top: 3px solid orange;
+    border-right: 3px solid orange;
+    transform: translate(-100%, 50%);
+  }
+
+  .navbar-nav a:after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid orange;
+    border-left: 3px solid orange;
+    transform: translate(100%, -50%)
+  }
+
+  .navbar-nav a:hover:before,
+  .navbar-nav a:hover:after{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+
+
+  .navbar-dark .navbar-nav .nav-link:hover {
+      color: orange;
+  }
+
+  .btn-three {
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+  }
+  .btn-three::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+  }
+  .btn-three:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+  }
+  .btn-three::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid orange;
+    transform: scale(1.2,1.2);
+  }
+  .btn-three:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+  }
+</style>
+<body>
+
+  <div class="container">
+    <div class="container">
+      <nav class="navbar navbar-expand-sm navbar-dark text-center">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile_volunteer' vol.id %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'hiring_offers' vol.id %}">Vacancies</a>
+          </li>
+          <li class="nav-link">
+            <a class="nav-link" href="{% url 'home_list' vol.id %}">Work</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+
+        <!---About Section-->
+        
+        
+        <!---End About-->
+        
+     <div class="container">
+      <div class="row text-center">
+        {% if messages %}
+      <div class="col-9 text-center">
+          {% for message in messages %}
+          {% if message.tags == 'error' %}
+          <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+          {% endif %}
+          {% if message.tags == 'success' %}
+          <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+     </div>
+        
+      
+
+        <!--List of Home-->
+      
+        <div class="container" style="margin-top: 2%;">
+          <h3 style="color: white;">Garbage Picking Halts List</h3><hr style="background: orange;border: 1px solid orange;">
+            <table class="table" style="color: white;">
+              <thead>
+                <tr>
+                  <th>owner_name</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                  <th>Garbage Collected</th>
+                  <th>Total Collected Garbage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for h in i %}
+                <tr>
+                  {% if h.volunteer.id == vol.id %}
+                  <td>{{ h.owner_name }}</td>
+                  {% elif h.collector.id == vol.id %}
+                  <td>{{ h.shopkeepername }}</td>
+                  {% elif h.picker.id == vol.id %}
+                  <td>{{ h.garbagecollectorname }}</td>
+                  {% else %}
+                  <td>Unknown</td>
+                  {% endif %}
+                  <td>{{ h.phone }}</td>
+                  <td>{{ h.address }}</td>
+                  <td>
+                    {% if h.volunteer.id == vol.id %}
+                    <form method="POST" action="{% url 'home_collect' h.id %}">
+                      {% elif h.collector.id == vol.id %}
+                      <form method="POST" action="{% url 'shop_collect' h.id %}">
+                      {% elif h.picker.id == vol.id %}
+                      <form method="POST" action="{% url 'gar_collect' h.id %}">
+                        {% else %}
+                        <form method="POST">
+                          {% endif %}
+                      {% csrf_token %}
+                      <input type="number" name="collection">
+                      <input type="submit" class="btn btn-warning">
+                    </form>
+                  </td>
+                  <td>{{ h.garbage_collected }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <br><br>
+       
+</body>
+</html>

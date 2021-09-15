@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Log in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+<style>
+    html {
+      height: 100%;
+    }
+    body {
+      margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background-image: url(https://images.unsplash.com/photo-1614360182734-121501b81cc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=373&q=80);
+    }
+
+    .container{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,.5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0,0,0,.6);
+      border-radius: 10px;
+    }
+
+
+    .container a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color:orange;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .container a:hover {
+      background: orange;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px orange,
+                  0 0 25px orange,
+                  0 0 50px orange,
+                  0 0 100px orange;
+    }
+    .card{
+        background: transparent;
+    }
+
+</style>
+<body>
+    <div class="container">
+    <!-- /.login-logo -->
+      <div class="card">
+        <h3 style="color: orange;font-weight: bold;text-align: center;"><b>Login</b> As</h3>
+        <div class="card-body login-card-body">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <a href="{% url 'home' %}">Home</a>
+                </div>
+                <div class="col-6 text-center">
+                  <a href="{% url 'login_shopkeeper' %}">Shopkeeper</a>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-6 text-center">
+                  <a href="{% url 'login_volunteer' %}">Volunteer</a>
+              </div>
+              <div class="col-6 text-center">
+                  <a href="{% url 'login_company' %}">Company</a>
+              </div>
+          </div>
+          <div class="row text-center">
+              <div class="col-12 text-center">
+                  <a href="{% url 'login_garbagecollector' %}">GarbargeCollector</a>
+              </div>
+          </div>
+       </div>
+       </div>
+       </div>
+     
+</body>
+</html>

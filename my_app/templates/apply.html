@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+    body{
+      background-color: black;
+    }
+    .navbar-nav {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .navbar-nav * {
+      box-sizing: border-box;
+      transition: all .35s ease;
+    }
+
+    .navbar-nav li {
+      display: inline-block;
+      list-style: outside none none;
+      margin: .5em 1em;
+      padding: 0;
+    }
+
+    .navbar-nav a {
+      padding: .5em .8em;
+      color: rgba(255,255,255,.5);
+      position: relative;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .navbar-nav a::before,
+    .navbar-nav a::after {
+      content: '';
+      height: 14px;
+      width: 14px;
+      position: absolute;
+      transition: all .35s ease;
+      opacity: 0;
+    }
+
+    .navbar-nav a::before {
+      content: '';
+      right: 0;
+      top: 0;
+      border-top: 3px solid orange;
+      border-right: 3px solid orange;
+      transform: translate(-100%, 50%);
+    }
+
+    .navbar-nav a:after {
+      content: '';
+      left: 0;
+      bottom: 0;
+      border-bottom: 3px solid orange;
+      border-left: 3px solid orange;
+      transform: translate(100%, -50%)
+    }
+
+    .navbar-nav a:hover:before,
+    .navbar-nav a:hover:after{
+      transform: translate(0,0);
+      opacity: 1;
+    }
+
+    .bg-dark {
+      background-color: black !important;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: orange;
+    }
+    
+  
+	.contact{
+		padding: 4%;
+		height: 400px;
+	}
+	.col-md-5{
+		background: #ff9b00;
+		padding: 4%;
+		border-top-left-radius: 0.5rem;
+		border-bottom-left-radius: 0.5rem;
+	}
+	.contact-info{
+		margin-top:10%;
+        background-color: orange;
+        color: black;
+        font-size: 22px;
+
+	}
+
+	.contact-info h2{
+		margin-bottom: 10%;
+	}
+    .contact-info input{
+        margin-top: 2%;
+        margin-bottom: 2%;
+        color: rgb(104, 92, 92);
+        font-size: 18px;
+        font-weight: bolder;
+    }
+    .contact-info label{
+        color: black;
+    }
+	.col-md-7 {
+		padding: 3%;
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+	}
+	.contact-form label{
+		font-weight:600;
+	}
+	.contact-form button{
+		background:orange;
+		color: black;
+		font-weight: 600;
+		width: 25%;
+	}
+	.contact-form button:focus{
+		box-shadow:none;
+	}
+    label{
+        color: white;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 2%;
+    }
+    
+</style>
+<body>
+
+       
+  <!--Adding a post-->
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'profile_volunteer' vol.id %}">Go Back</a>
+              </li>
+            </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <h2 style="color: white;margin-top: 2%;">Application For {{ job.job_title }}</h2>
+  <hr style="background: orange;border: 1px solid orange;">
+  </div>
+  
+  <div class="container contact">
+    <div class="row">
+      <div class="col-md-5" style="background-color: orange;">
+        <div class="contact-info">
+        <form method="POST" action="{% url 'upload' vol.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="row">
+              <div class="col-12">
+                    <label class="control-label " for="fname">Job Posted By:</label>
+                    <div class="col-sm-10">          
+                        <input  style ="background-color: transparent;border:none;border-bottom: 1px solid orange;" class="form-control mr-sm-2" name="posted_by" type="text" placeholder="Posted_By" value="{{ job.posted_by }}">
+                    </div>
+              </div>
+              <div class="col-12">
+                <label class="control-label" for="fname">Job Title:</label>
+                <div class="col-sm-10">          
+                    <input  style ="background-color: transparent;border:none;border-bottom: 1px solid orange;" class="form-control mr-sm-2" name="job_title" type="text" placeholder="Job title" value="{{ job.job_title }}">
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="control-label" for="fname">Job Description:</label>
+                <div class="col-sm-10">          
+                    <input  style ="background-color: transparent;border:none;border-bottom: 1px solid orange;" class="form-control mr-sm-2" name="job_description" type="text" placeholder="Job_Description" value="{{ job.job_description }}">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7" style="background-color: black">
+        <div class="contact-form">
+            <label class="control-label col-sm-3" for="fname">Your Id</label>
+            <input type="text" value="{{ vol.id }}"style ="background-color: transparent;border:none;border-bottom: 1px solid orange;" disabled>
+          </div><br>
+          <div class="contact-form">
+            <label class="control-label col-sm-3" for="fname">Your Name</label>
+            <input type="text" value="{{ vol.name }}"style ="background-color: transparent;border:none;border-bottom: 1px solid orange;" disabled>
+          </div><br>
+          <div class="contact-form">
+            <label class="control-label col-sm-3" for="fname">Your Phone Number</label>
+            <input type="text" value="{{ vol.phone }}"style ="background-color: transparent;border:none;border-bottom: 1px solid orange;" disabled>
+          </div><br><br>
+            
+            <label class="control-label col-sm-3" for="upload">Upload the file</label>
+            <div class="col-sm-10">
+                <input type="file" name="upload" required>
+            </div> <br>
+            <div class="col-sm-offset-2 col-sm-10"><br>
+            <input type="submit" class="btn btn-warning">
+            </div>
+          </div>
+          <div class="row text-center">
+            {% if messages %}
+           <div class="col-12 text-center">
+              {% for message in messages %}
+              {% if message.tags == 'error' %}
+              <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+              {% endif %}
+              {% if message.tags == 'success' %}
+              <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+          </form>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+</html>

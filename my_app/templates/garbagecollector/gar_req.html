@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GarbageCollector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+  body{
+    background-color: black;
+  }
+  .btn {
+    background: transparent;
+    border: 2px solid orange;
+    color: white;
+    font-weight: bold;
+  }
+  .btn:hover {
+    background-color: orange;
+    color: white;
+    border-radius: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .navbar-nav {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .navbar-nav * {
+    box-sizing: border-box;
+    transition: all .35s ease;
+  }
+
+  .navbar-nav li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: .5em 1em;
+    padding: 0;
+  }
+
+  .navbar-nav a {
+    padding: .5em .8em;
+    color: rgba(255,255,255,.5);
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .navbar-nav a::before,
+  .navbar-nav a::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+  }
+
+  .navbar-nav a::before {
+    content: '';
+    right: 0;
+    top: 0;
+    border-top: 3px solid orange;
+    border-right: 3px solid orange;
+    transform: translate(-100%, 50%);
+  }
+
+  .navbar-nav a:after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid orange;
+    border-left: 3px solid orange;
+    transform: translate(100%, -50%)
+  }
+
+  .navbar-nav a:hover:before,
+  .navbar-nav a:hover:after{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+
+  .navbar-dark .navbar-nav .nav-link:hover {
+      color: orange;
+  }
+
+  .pending{
+      background-color: orange;
+  }
+  .accepted{
+      background-color: rgb(48, 192, 48);
+      text-align: center;
+  }
+  .declined{
+      background-color: rgb(248, 56, 56);
+  }
+
+  .row{
+      
+      margin:2%;
+      padding: 20px;
+      border-radius: 20px;
+  }
+  h4{
+    color: white;
+    margin-bottom: 2%;
+  }
+
+</style>
+<body>
+  
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark dark-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile_garbagecollector'  r_obj.req_by.id %}">Go Back</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+        <div class="request">
+        <h3 style="color: white;">Request list from shopkeeper </h3>
+        <hr style="background-color: orange;border: 2px solid orange;">
+        <div class="home">
+          {% if r_obj.req_status == 1 %}
+          <div class="row accepted">
+            <h4>Request sent from Shop <b>{{ r_obj.req_by }}</b> is <span>Accepted</span></h4>
+        </div>
+        {% else %}
+        <div class="row declined">
+          <h4>Request sent from Shop <b>{{ r_obj.req_by }}</b> is <span>Declined</span></h4>
+        </div>
+        {% endif %}
+        </div>
+      </div>
+</div>
+</body>
+</html>

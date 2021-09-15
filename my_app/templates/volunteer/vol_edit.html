@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Volunteer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+<style>
+    html {
+      height: 100%;
+    }
+    body {
+      margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background-image: url(https://images.unsplash.com/photo-1614360182734-121501b81cc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=373&q=80);
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,.5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0,0,0,.6);
+      border-radius: 10px;
+    }
+
+
+    .container .user-box {
+      position: relative;
+    }
+
+    .container .user-box input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid orange;
+      outline: none;
+      background: transparent;
+    }
+
+    .container form a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color:orange;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px
+    }
+
+    .container a:hover {
+      background: orange;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px orange,
+                  0 0 25px orange,
+                  0 0 50px orange,
+                  0 0 100px orange;
+    }
+    .card{
+        background: transparent;
+    }
+    .submit{
+        background-color: transparent;
+        padding: 10px;
+        font-weight: bold;
+        border: 1px solid orange;
+        font-size: 20px;
+        color: orange;
+        box-shadow: 5px 5px 10px orange;
+    }
+    .submit:hover{
+        background-color: orange;
+        color: black;
+        box-shadow: none;
+    }
+    .submit:focus{
+        border: 1px solid orange;
+    }
+</style>
+<body>
+  
+    <div class="container">
+      <div class="card">
+        <h3 style="color: orange;font-weight: bold;text-align: center;"><b>VOLUNTEER</b> Edit</h3>
+        <div class="card-body login-card-body">
+          <form method="POST" action="{% url 'vol_update' details.id %}">
+          {% csrf_token %}
+          <div class="row">
+            <div class="user-box col-lg-6">
+                <input type="text" class="form-control" placeholder="Your Name" name="username" value="{{ details.name }}">
+            </div>
+            <div class="row">
+              <div class="user-box col-lg-6">
+                <input type="numbers" class="form-control" placeholder="Your Contact Number" name="phone" value="{{ details.phone }}">
+              </div>
+               <div class="user-box col-lg-6">
+                <input type="email" class="form-control" placeholder="Your Email" name="email"  value="{{ details.email }}">
+             </div>
+          </div>
+          
+          <div class="row">
+             <div class="user-box col-lg-12">
+                <input type="text" class="form-control" placeholder="Your Whole Address" name="address"  value="{{ details.address }}">
+             </div>
+          </div><br>
+          <div class="row">
+            <div class="user-box col-lg-12">
+                <input type="text" class="form-control" placeholder="Password" name="password1"  value="{{ details.password }}">
+             </div>
+          </div>
+            </div>
+            <input class="submit" type="Submit" value="Submit">
+            <br>
+            </form>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+     
+</body>
+</html>

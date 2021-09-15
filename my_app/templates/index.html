@@ -1,0 +1,519 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+      <title>Nonthing is Non-Reusable</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    </head>
+    <style>
+        section {
+          padding: 60px 0;
+          overflow: hidden;
+        }
+        
+        .section-title {
+          text-align: center;
+          padding: 30px 0;
+          position: relative;
+        }
+        
+        .section-title h2 {
+          font-size: 40px;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          padding-bottom: 0;
+          color: orangered;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .section-title span {
+          position: absolute;
+          top: 51px;
+          color: rgb(43, 42, 42);
+          left: 0;
+          right: 0;
+          z-index: 1;
+          font-weight: 700;
+          font-size: 40px;
+          text-transform: uppercase;
+          line-height: 0;
+        }
+        
+        .section-title p {
+          margin-bottom: 0;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .section-title h3 {
+            color: #fff;
+        }
+        
+        @media (max-width: 575px) {
+          .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+          }
+          .section-title span {
+            font-size: 38px;
+          }
+        }
+        
+        /*--------------------------------------------------------------
+        # About
+        --------------------------------------------------------------*/
+        .about .content h2 {
+          font-weight: 600;
+          font-size: 26px;
+          
+        }
+        
+        .about .content ul {
+          list-style: none;
+          padding: 0;
+          
+        }
+        
+        .about .content ul li {
+          padding-bottom: 10px;
+          
+        }
+        
+        .about .content ul i {
+          font-size: 20px;
+          padding-right: 4px;
+          color: orange;
+        }
+        
+        /* ----------about---------- */
+        
+        /* -------------- counters section ---------- */
+        .counters .container {
+    	max-width: 1100px;
+    
+    	margin: 0 auto;
+    	overflow: auto;
+    	}
+    	.counters {
+    	background: transparent;
+    	box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+    	
+    	color: orange;
+    	padding: 40px 20px;
+    }
+    .counters .container {
+    	display: grid;
+    	grid-template-columns: repeat(4, 1fr);
+    	grid-gap: 30px;
+    	text-align: center;
+    }
+    
+    
+    .counters .counter {
+    	font-size: 45px;
+    	margin: 10px 0;
+    	border: #fff;
+    }
+    
+    @media (max-width: 700px) {
+    	.counters .container {
+    		grid-template-columns: repeat(2, 1fr);
+    	}
+    
+    	.counters .container > div:nth-of-type(1),
+    	.counters .container > div:nth-of-type(2) {
+    		
+    		padding-bottom: 20px;
+    	}
+    }
+    
+     /*--------------------------------------------------------------
+        # Services
+        --------------------------------------------------------------*/
+        .services .icon-box {
+          text-align: center;
+          padding: 80px 20px;
+          transition: all ease-in-out 0.5s;
+          box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .services .icon-box .icon {
+          margin: 0 auto;
+          width: 64px;
+          height: 64px;
+          background: orange;
+          transition: all .3s ease-out 0s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+          transform-style: preserve-3d;
+        }
+        
+        .services .icon-box .icon i {
+          color: #fff;
+          font-size: 28px;
+        }
+        
+        .services .icon-box .icon::before {
+          position: absolute;
+          content: '';
+          left: -8px;
+          top: -8px;
+          height: 100%;
+          width: 100%;
+          background: #fce5e5;
+          transition: all .3s ease-out 0s;
+          transform: translateZ(-1px);
+        }
+        
+        .services .icon-box h4 {
+          font-weight: 700;
+          margin-bottom: 15px;
+          font-size: 24px;
+          color: orange;
+        }
+        
+        
+        .services .icon-box p {
+          line-height: 24px;
+          font-size: 14px;
+          margin-bottom: 0;
+          color: #fff;
+        }
+        
+        .services .icon-box:hover {
+          border-color: orangered;
+          padding: 70px 20px 90px 20px;
+        }
+        
+        .services .icon-box:hover .icon {
+          background: #fff;
+        }
+        
+        .services .icon-box:hover .icon i {
+          color: orangered;
+        }
+        
+        .services .icon-box:hover .icon::before {
+          background: orangered;
+        }
+        
+        .services .icon-box:hover p {
+          color: white;
+        }
+        
+        .services .icon-box:hover h4{
+            color: orangered;
+        }
+        
+        /* # Contact
+        --------------------------------------------------------------*/
+        .contact .info-box {
+          color: #444444;
+          text-align: center;
+          box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+          padding: 20px 0 30px 0;
+        }
+        
+       
+        
+        .contact .info-box h3 {
+          font-size: 20px;
+          color: orangered;
+          font-weight: 700;
+          margin: 10px 0;
+        }
+        
+        .contact .info-box p {
+          padding: 0;
+          line-height: 24px;
+          font-size: 14px;
+          margin-bottom: 0;
+        }
+        
+        /* hero button */
+        a {
+          text-decoration: none;
+        }
+        a:hover{
+          text-decoration: none;
+          color: white;
+        }
+        .home {
+          padding: 0.9rem 1.2rem;
+          border-radius: 50px;
+          background-color: transparent;
+          border: 0;
+          text-transform: uppercase;
+          letter-spacing: 0.5rem;
+          font-size: 1rem;
+          color: var(--white);
+          cursor: pointer;
+        }
+        
+        
+        /* ****Notifications****** */
+        .dropdown {
+          background-color: transparent;
+          color: white;
+          text-decoration: none;
+          margin-top: -105px;
+          padding: 15px 25px;
+          
+          
+          border-radius: 50%;
+          float: right;
+        }
+        
+        .dropdown:hover {
+          box-shadow: 0 0 10px orangered;
+          
+        }
+        
+        .dropdown .badge {
+          
+          top: 10px;
+          
+          padding: 5px 10px;
+          border-radius: 50%;
+          background: red;
+          color: white;
+          
+        }
+
+        body{
+          background-color: black;
+        }
+    </style>
+    <body>
+        
+     
+        <div class="banner" style="min-height: 110vh; background-size: cover; background-image: url(&quot;https://images.unsplash.com/photo-1517284938313-7b578da60a59?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGFyayUyMGZvcmVzdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80);">
+          <div class="container" style="padding-top:10%;">
+            <div class="row align-items-center d-flex justify-content-between">
+              <div class="col-12 col-md-6 pb-5 order-2 order-sm-2 ">
+                <h1 style="color: #ff6600" class="font-weight-bold mb-3 mt-5 display-3">Nothing is Non-Reusable</h1>
+                <h6 class="lead" style="margin-top: 10px;margin-bottom: 10%;color:rgb(207, 205, 205)">{{ random_quote.quote }}</h6>
+                <div class="flex mt-3 mb-1" style="margin-top: 5%;">
+                <a style="margin-top: 10%;background-color: rgb(255, 131, 15);letter-spacing: 0.5rem;
+                font-size: 1rem;font-weight:bold;color:black;padding: 0.9rem 1.2rem;text-transform: uppercase;border-radius: 50px;font-size: 1rem;margin-right: 2%;" href="{% url 'login' %}">Login</a>
+                <a  style="margin-top: 10%;background-color: transparent;letter-spacing: 0.5rem;border:1px solid rgb(255, 131, 15);
+                font-size: 1rem;font-weight:bold;color:rgb(255, 131, 15);padding: 0.9rem 1.2rem;text-transform: uppercase;border-radius: 50px;font-size: 1rem;" href="{% url 'signup' %}">Sign Up</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+     <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+            <span>About Us</span>
+            <h2>About Us</h2>
+            <h6 style="color: orange;">We believe that all the waste generated from industrial, residential and commercial 
+              activities in a given area, and can be handled in a variety of ways. We came up with an solid 
+              waste disposal and management technique. We have 4 stages to dispose/recycle the waste.We are providing a platform where every
+              user stays collected through the whole process, everyone's contribution is significant.Garbage goes from house to shopkeeper than 
+              to garbage collector later it is sold to the companies/farms/rest is buried or burned.At each and every step of the Garbage Collecting process every person will be benefited by 
+              selling garbage / buying /recycling or may be making their homes clean.Our ultimate aim is that to have no segregated wastes our the streets and  as a result getting a clean 
+              environment out of it.
+            </h6>
+        </div>
+    </section>
+    <!-- End About Section -->
+     
+    
+    
+    <!-- ======= Counter Section ======= -->
+    <div class="counters">
+      <div class="section-title">
+        <span>Be a Part of Change</span>
+        <h2>Be a Part of Change</h2>
+    </div>
+			<div class="container">
+			
+				<div class="section-title info-box">
+					<div class="counter" data-target="200000000">100</div>
+					<h6>Tons/year dumped into ocean</h6>
+				</div>
+
+				<div class="section-title">
+					<div class="counter" data-target="270000">100</div>
+					<h6>Tons/year is getting burned </h6>
+				</div>
+                <div class="section-title">
+					<div class="counter" data-target="8000000">100</div>
+					<h6>Tons/day pieces make their way to oceans </h6>
+				</div>
+                <div class="section-title">
+					<div class="counter" data-target="3000000">100</div>
+					<h6>Tons/year is getting recycled.</h6>
+				</div>
+				
+			</div>
+		</div>
+		<!-- End Counter Section -->
+		
+		<!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Services</span>
+          <h2>Services</h2>
+          <h3>We value your efforts to get a better soceity</h3>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="0">
+            <div class="icon-box">
+              <div class="icon"><span style="font-size: 40px" class="iconify-inline" data-icon="ic:baseline-volunteer-activism"></span></div>
+              <h4>What our Volunteers do?</h4>
+              <p>Volunteers play a major role in this Garbage management system. Usually volunteers apply for a part-time or full-time job,
+                and get hired by others (except home) and they are allocated their convenient area to collect garbage from houses,shops etc, or any other work
+                according to the job they apply and get paid for it.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+            <div class="icon-box">
+            <div class="icon"><span style="font-size: 40px" class="iconify-inline" data-icon="ant-design:shop-filled"></span></div>
+              <h4>What our Shop Keepers do?</h4>
+              <p>Shopkeepers play a very significant role, they assign volunteers for each home and street and collect the garbage regularly.
+                And pay the volunteer accordingly for the amount of garbage collected and later the sell the garbage to garbagecollector and get paid for it.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><span style="font-size: 40px" class="iconify-inline" data-icon="fontisto:recycle"></span></div>
+              <h4>What our Garbage collectors do?</h4>
+              <p>Garbage Collector Role is way similar to Shopkeepers role, for every garbagecollector there will approve some Shopkeepers under them in their
+                area. And on regular bases they collect the garbage from their Shopkeepers through volunteers and pay them, later on they get paid by the compaines 
+                who are willing to buy garbage and recycle them.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Services Section -->
+
+    
+		
+    <!-- ======= Contact Section ======= -->
+    <div class="contact-form" style="background-color: black;color: white;padding-bottom: 3%;">
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Contact Us</span>
+          <h2>Contact Us</h2>
+          <h3>You can contact us anytime</h3>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <h3>Our Address</h3>
+              <p>A108 Adam Street, New York, NY 535022</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <h3>Email Us</h3>
+              <p>contact@example.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <h3>Call Us</h3>
+              <p>+1 5589 55488 55</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+      <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <h3>Drop Us a Message</h3>
+       <div class="row" style="margin-top: 2%;">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" style="border:1px solid orangered;background: transparent;" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" style="border:1px solid orangered;background: transparent;" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" style="margin-top: 5%;background-color:orangered;letter-spacing: 0.5rem;
+                    font-size: 1rem;font-weight:bold;color:black;padding: 0.9rem 1.2rem;text-transform: uppercase;border-radius: 50px;font-size: 1rem;border:none" value="Send Message" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea name="txtMsg" style="border:1px solid orangered;background: transparent;width: 100%; height: 90px;" class="form-control" placeholder="Your Message *" ></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+
+</div>
+    <!-- End Contact Section -->
+		
+		<script>
+      const counters = document.querySelectorAll('.counter');
+      const speed = 500; // The lower the faster
+
+      counters.forEach(counter => {
+      const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+
+          // Lower inc to slow and higher to slow
+          const inc = target / speed;
+
+          // console.log(inc);
+          // console.log(count);
+
+          // Check if target is reached
+          if (count < target) {
+              // Add inc to count and output in counter
+              counter.innerText = count + inc;
+              // Call function every ms
+              setTimeout(updateCount, 1);
+          } else {
+              counter.innerText = target;
+          }
+		};
+
+      updateCount();
+      });
+
+</script>
+    </body>
+</html>
