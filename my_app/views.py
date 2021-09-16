@@ -221,7 +221,7 @@ def vacancy_shop(request,id):
         offer = vacancy.objects.create(posted_by=posted_by,job_title=title,job_description=description)
         offer.save()
         messages.success(request,"Successfully Updated")
-        return render(request,"shopkeeper/shop_vacany.html",{'messages':messages,'i':i,'posted' : posted})
+        return render(request,"shopkeeper/shop_vacany.html",{'i':i,'posted' : posted})
     else:
         posted = vacancy.objects.filter(posted_by = i.shop_name )
         return render(request, 'shopkeeper/shop_vacany.html', {'i':i,'posted' : posted})
@@ -398,7 +398,7 @@ def vacancy_garbagecollector(request,id):
         offer = vacancy.objects.create(posted_by=posted_by,job_title=title,job_description=description)
         offer.save()
         messages.success(request,"Successfully Updated")
-        return render(request,"garbagecollector/garbagecollector_vacany.html",{'messages':messages,'i':i,'posted' : posted})
+        return render(request,"garbagecollector/garbagecollector_vacany.html",{'i':i,'posted' : posted})
     else:
         posted = vacancy.objects.filter(posted_by = i.garbagecollector_company_name )
         return render(request, 'garbagecollector/garbagecollector_vacany.html', {'i':i,'posted' : posted})
@@ -559,7 +559,7 @@ def vacancy_company(request,id):
         offer = vacancy.objects.create(posted_by=posted_by,job_title=title,job_description=description)
         offer.save()
         messages.success(request,"Successfully Updated")
-        return render(request,"company/company_vacany.html",{'messages':messages,'i':i,'posted' : posted})
+        return render(request,"company/company_vacany.html",{'i':i,'posted' : posted})
     else:
         posted = vacancy.objects.filter(posted_by = i.company_name )
         return render(request, 'company/company_vacany.html', {'i':i,'posted' : posted})
