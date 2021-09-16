@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +28,7 @@ SECRET_KEY = 'django-insecure-4og+79^v&h=x2x0ltab9&iv_v6+f#5&@z#!ryf14_=_@4f9_l5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myprj.herokuapp.com']
 
 
 # Application definition
@@ -76,8 +79,12 @@ WSGI_APPLICATION = 'myprj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dda8h7e8r1lr4a',
+        'USER': 'hgtxtwuyewtcsn',
+        'PASSWORD' : 'e9b1de6e6cd7923384adabe80a5d77a97c6cee4b0faef3e0547e8287903d1458',
+        'HOST' : 'ec2-34-228-154-153.compute-1.amazonaws.com',        
+        'PORT': '5432',
     }
 }
 
@@ -121,7 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
