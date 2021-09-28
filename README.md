@@ -62,6 +62,6 @@ creating part-time or full-time opportunities.
 
 ## Project Reference
 
-<b>The Entire Prototype Can be Viewed Here - <a href='' >Heroes IN Action</a></b>
-* Website link - *https://nothing-is-non-reusable.herokuapp.com/*
+<b>The Entire Prototype Can be Viewed Here - <a href='https://nothing-is-non-reusable.herokuapp.com/' >NOTHING IS NON-REUSEABLE</a></b>
+* Source Code - *https://github.com/Monisha-23/Nothing-is-non-reusable*
 
