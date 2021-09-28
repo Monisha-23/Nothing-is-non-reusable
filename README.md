@@ -65,3 +65,30 @@ creating part-time or full-time opportunities.
 <b>The Entire Prototype Can be Viewed Here - <a href='https://nothing-is-non-reusable.herokuapp.com/' >NOTHING IS NON-REUSEABLE</a></b>
 * Source Code - *https://github.com/Monisha-23/Nothing-is-non-reusable*
 
+## About The Developers
+
+<table>
+<tr>
+  <td>
+    <img src = "" height = "100">&nbsp;&nbsp<img src = "https://img.shields.io/github/followers/astha-garhewal?label=Let%27s%20Connect&style=social"><br />
+
+<a href = "https://github.com/astha-garhewal">Chippada Monisha</a><br>
+A third year undergraduate in B.Tech, Computer Science and Engineering at Guru Ghasidas Vishwavidyalaya, Bilaspur, India.<br/>
+
+  </td>
+  <td>
+    <img src = "" height = "100">&nbsp;&nbsp<img src = "https://img.shields.io/github/followers/Abhijit2505?label=Let%27s%20Connect&style=social"><br />
+
+<a href = "https://github.com/Abhijit2505">Neelam Chanapati</a><br>
+A third year undergraduate in B.Tech, Computer Science and Engineering at Maharaj Vijayaram Gajapathi Raj College of Engineering, Vizianagarm,Andhra Pradesh India.
+  </td>
+</tr>
+</table>
+
+
+#### Reference And Copyright
+
+ - Website copyright 2020 @ <a href = "https://github.com/Monisha-23">Chippada Monisha</a> @ <a href = "#">Neelam Chanapati</a>
+ - Theme Reference  - Bootstrap
+ - Code Snippet Reference - Codepen and W3Schools
+ - Image Copyright - Unslash
