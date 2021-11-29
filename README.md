@@ -72,14 +72,14 @@ creating part-time or full-time opportunities.
   <td>
 
 
-<a href = "https://github.com/astha-garhewal">Chippada Monisha</a><br>
+<a href = "https://github.com/Monisha-23">Chippada Monisha</a><br>
 A third year undergraduate in B.Tech, Computer Science and Engineering at Guru Ghasidas Vishwavidyalaya, Bilaspur, India.<br/>
 
   </td>
   <td>
 
 
-<a href = "https://github.com/Abhijit2505">Neelam Chanapati</a><br>
+<a href = "">Neelam Chanapati</a><br>
 A third year undergraduate in B.Tech, Computer Science and Engineering at Maharaj Vijayaram Gajapathi Raj College of Engineering, Vizianagarm,Andhra Pradesh India.
   </td>
 </tr>
